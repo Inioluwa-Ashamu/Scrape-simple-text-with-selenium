@@ -3,7 +3,6 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 def get_driver():
-  #Set options to make browsing easier
   options = webdriver.ChromeOptions()
   options.add_argument("disable-infobars")
   options.add_argument("start-maximized")
@@ -13,16 +12,16 @@ def get_driver():
   options.add_argument("disable-blink-features=AutomationControlled")
 
   driver = webdriver.Chrome(options=options)
-  driver.get("https://automated.pythonanywhere.com/login/")
+  driver.get("https://titan22.com/account/login")
   return driver
 
 def main():
   driver = get_driver()
-  driver.find_element(by="id", value="id_username").send_keys("automated")
+  driver.find_element(by="id", value="CustomerEmail").send_keys("inioluwaashamu@gmail.com")
   time.sleep(2)
-  driver.find_element(by="id", value="id_password").send_keys("automatedautomated" + Keys.RETURN)
+  driver.find_element(by="id", value="CustomerPassword").send_keys("password" + Keys.RETURN)
   time.sleep(2)
-  driver.find_element(by="xpath", value="/html/body/nav/div/a").click
+  driver.find_element(by="xpath", value="/html/body/footer/div/section/div/div[1]/div[1]/div[1]/nav/ul/li[1]/a").click()
   print(driver.current_url)
 
 print(main())
